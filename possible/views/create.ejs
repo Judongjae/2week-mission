@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <script>
+
+        function create() {
+          const userid = $("#userid").val();
+          const title = $("#title").val();
+          const detail = $("#detail").val();
+          const password = $("#password").val();
+          console.log(title, user, password, content);
+
+          $ajax({
+            type: "Post",
+            url: '/api/app.js',
+            data: {title, user, password, content},
+            success: (response) => {
+              alert(response.result);
+              location.href = "/";
+            }
+          })
+        }
+
+      </script>
+  </head>
+  <body>
+    <div class="form-group">
+      <label for="exampleInputPassword1">사용자</label>
+      <input type="name" class="form-control" id="userid" placeholder="이름">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">제목</label>
+      <input type="title" class="form-control" id="title" placeholder="제목">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">내용</label>
+      <input type="detail" class="form-control" id="detail" placeholder="내용">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">비밀번호</label>
+      <input type="password" class="form-control" id="password" placeholder="비밀번호">
+    </div>
+    <button type="submit" class="btn btn-primary">등록</button>
+  </body>
+</html>
